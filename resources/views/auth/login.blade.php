@@ -1,8 +1,8 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">Welcome back</p>
-        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900">Log in to VouchAI</h2>
-        <p class="mt-2 text-sm text-gray-600">Turn client feedback into brighter growth stories.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:!text-teal-300">Welcome back</p>
+        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Log in to VouchAI</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-slate-300">Turn client feedback into brighter growth stories.</p>
     </div>
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -27,12 +27,13 @@
         <div class="flex items-center justify-between gap-3">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
-                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500 dark:border-slate-600 dark:bg-slate-800"
+                    name="remember">
+                <span class="ms-2 text-sm text-gray-600 dark:text-slate-300">{{ __('Remember me') }}</span>
             </label>
 
             @if (Route::has('password.request'))
-                <a class="text-sm font-medium text-indigo-600 hover:text-indigo-700" href="{{ route('password.request') }}">
+                <a class="text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-300" href="{{ route('password.request') }}">
                     {{ __('Forgot password?') }}
                 </a>
             @endif
@@ -45,9 +46,9 @@
         </div>
 
         @if (Route::has('register'))
-            <p class="text-center text-sm text-gray-600">
+            <p class="text-center text-sm text-gray-600 dark:text-slate-300">
                 Need an account?
-                <a href="{{ route('register') }}" class="font-semibold text-indigo-600 hover:text-indigo-700">Create one</a>
+                <a href="{{ route('register') }}" class="font-semibold text-teal-600 hover:text-teal-700">Create one</a>
             </p>
         @endif
     </form>

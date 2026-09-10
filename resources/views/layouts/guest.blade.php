@@ -16,34 +16,34 @@
 
 <body class="font-sans antialiased bg-slate-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100">
     <div
-        class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.12),transparent_35%),linear-gradient(to_bottom,_#f8fafc_0%,_#eef2ff_100%)] dark:bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),transparent_30%),linear-gradient(to_bottom,_#020617_0%,_#0f172a_100%)]">
-        <div class="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 py-10 sm:px-6">
+        class="min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(20,184,166,0.10),transparent_40%),linear-gradient(to_bottom,_#f8fafc_0%,_#f0fdf9_100%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(13,148,136,0.18),transparent_40%),linear-gradient(160deg,_#020617_0%,_#042f2e_100%)]">
+        <div class="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 py-5 sm:px-6">
             <div
                 class="mb-6 flex items-center justify-between gap-4 rounded-full border border-slate-200/80 bg-white/75 p-2 pr-2.5 shadow-sm backdrop-blur-md transition-all duration-200 dark:border-slate-800/80 dark:bg-slate-900/75">
                 <!-- Brand Logo -->
                 <a href="/"
                     class="group flex items-center gap-2.5 pl-2 text-xl font-black tracking-tight text-slate-900 transition hover:opacity-90 dark:text-white">
                     <div
-                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 text-white shadow-md shadow-indigo-500/20 transition group-hover:scale-105">
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-teal-600 to-cyan-600 text-white shadow-md shadow-teal-500/20 transition group-hover:scale-105">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <span>Vouch<span class="text-indigo-600 dark:text-indigo-400">AI</span></span>
+                    <span>Vouch<span class="text-teal-600 dark:!text-teal-300">AI</span></span>
                 </a>
 
                 <!-- Actions & Controls -->
                 <div class="flex items-center gap-1.5 sm:gap-2">
                     <!-- Log in Link -->
                     <a href="{{ route('login') }}"
-                        class="rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400">
+                        class="rounded-full px-4 py-2 text-xs font-semibold text-teal-600 transition hover:bg-slate-100 hover:text-teal-700 dark:!text-teal-300 dark:hover:bg-slate-800 dark:hover:text-teal-200">
                         Log in
                     </a>
 
                     <!-- Get Started CTA Button -->
                     <a href="{{ route('register') }}"
-                        class="inline-flex items-center gap-1.5 rounded-full bg-indigo-600 px-4 py-1.5 text-xs font-semibold text-white shadow-md shadow-indigo-500/20 transition hover:bg-indigo-700 active:scale-95 dark:shadow-indigo-500/10">
+                        class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-teal-600 to-cyan-600 px-3 py-2 text-xs font-semibold text-white shadow-md shadow-teal-500/20 transition hover:from-teal-700 hover:to-cyan-700 active:scale-95">
                         <span>Get started</span>
                         <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                             stroke="currentColor">
@@ -73,7 +73,7 @@
             </div>
 
             <div
-                class="overflow-hidden rounded-3xl border border-indigo-100 bg-white/90 p-6 shadow-[0_20px_60px_-20px_rgba(79,70,229,0.35)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/85 dark:shadow-[0_20px_60px_-20px_rgba(15,23,42,0.9)] sm:p-8">
+                class="overflow-hidden rounded-3xl border border-slate-200/80  bg-white/90 p-6 shadow-[0_20px_60px_-20px_rgba(13,148,136,0.30)] backdrop-blur-sm  dark:border-teal-900/40 dark:bg-slate-900/85 dark:shadow-[0_20px_60px_-20px_rgba(13,148,136,0.25)] sm:p-8">
                 {{ $slot }}
             </div>
 

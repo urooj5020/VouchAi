@@ -1,8 +1,9 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">Reset access</p>
-        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900">Forgot your password?</h2>
-        <p class="mt-2 text-sm text-gray-600">No problem — we’ll email a secure reset link to your inbox.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Reset access</p>
+        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Forgot your password?</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-slate-300">No problem — we’ll email a secure reset link to your
+            inbox.</p>
     </div>
 
     <x-auth-session-status class="mb-4" :status="session('status')" />

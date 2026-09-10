@@ -16,7 +16,7 @@
 
 <body class="font-sans antialiased bg-slate-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100">
     <div
-        class="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.12),transparent_35%),linear-gradient(to_bottom,_#f8fafc_0%,_#eef2ff_100%)] dark:bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),transparent_30%),linear-gradient(to_bottom,_#020617_0%,_#0f172a_100%)]">
+        class="min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(20,184,166,0.10),transparent_40%),linear-gradient(to_bottom,_#f8fafc_0%,_#f0fdf9_100%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(13,148,136,0.18),transparent_40%),linear-gradient(160deg,_#020617_0%,_#042f2e_100%)]">
         @include('layouts.navigation')
 
         @isset($header)
@@ -28,14 +28,10 @@
             </header>
         @endisset
 
-        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 animate-fade-in">
             {{ $slot }}
         </main>
     </div>
 </body>
 
 </html>
-
-
-
-

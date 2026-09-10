@@ -1,10 +1,12 @@
 <section>
-    <header>
-        <h2 class="text-xl font-bold text-gray-900">
+    <header class="border-b border-slate-100 pb-5 dark:border-slate-800">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Personal
+            details</p>
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-slate-300">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -31,10 +33,10 @@
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
-                    <p class="mt-2 text-sm text-gray-700">
+                    <p class="mt-2 text-sm text-gray-700 dark:text-slate-300">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="font-medium text-indigo-600 hover:text-indigo-700">
+                        <button form="send-verification" class="font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
@@ -53,7 +55,7 @@
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600">{{ __('Saved.') }}</p>
+                    class="text-sm text-gray-600 dark:text-slate-300">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>

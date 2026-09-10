@@ -1,8 +1,8 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">Secure reset</p>
-        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900">Set a new password</h2>
-        <p class="mt-2 text-sm text-gray-600">Choose a strong password to protect your account.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Secure reset</p>
+        <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Set a new password</h2>
+        <p class="mt-2 text-sm text-gray-600 dark:text-slate-300">Choose a strong password to protect your account.</p>
     </div>
 
     <form method="POST" action="{{ route('password.store') }}" class="space-y-5">

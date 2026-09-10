@@ -20,12 +20,16 @@ const applyTheme = (theme) => {
     }
 
     document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+        const darkMode = root.classList.contains("dark");
         const icon = button.querySelector("[data-theme-icon]");
-        if (icon) {
-            icon.innerHTML = root.classList.contains("dark")
-                ? sunIcon
-                : moonIcon;
-        }
+        const lightIcon = button.querySelector("[data-theme-icon-light]");
+        const darkIcon = button.querySelector("[data-theme-icon-dark]");
+        const label = button.querySelector("[data-theme-label]");
+
+        if (icon) icon.innerHTML = darkMode ? sunIcon : moonIcon;
+        if (lightIcon) lightIcon.classList.toggle("hidden", !darkMode);
+        if (darkIcon) darkIcon.classList.toggle("hidden", darkMode);
+        if (label) label.textContent = darkMode ? "Light" : "Dark";
     });
 };
 

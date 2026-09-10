@@ -1,10 +1,11 @@
 <section>
-    <header>
-        <h2 class="text-xl font-bold text-gray-900">
+    <header class="border-b border-slate-100 pb-5 dark:border-slate-800">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-300">Security</p>
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white">
             {{ __('Update Password') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-slate-300">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
@@ -39,7 +40,7 @@
 
             @if (session('status') === 'password-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600">{{ __('Saved.') }}</p>
+                    class="text-sm text-gray-600 dark:text-slate-300">{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>

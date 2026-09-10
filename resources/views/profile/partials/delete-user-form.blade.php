@@ -1,10 +1,11 @@
 <section class="space-y-6">
-    <header>
-        <h2 class="text-xl font-bold text-gray-900">
+    <header class="border-b border-rose-200 pb-5 dark:border-rose-500/20">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600 dark:text-rose-400">Danger zone</p>
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white">
             {{ __('Delete Account') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-slate-300">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>
@@ -17,11 +18,11 @@
             @csrf
             @method('delete')
 
-            <h2 class="text-lg font-bold text-gray-900">
+            <h2 class="text-lg font-bold text-gray-900 dark:text-white">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-gray-600 dark:text-slate-300">
                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
             </p>
 

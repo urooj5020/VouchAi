@@ -6,23 +6,39 @@
                 <a href="{{ route('dashboard') }}"
                     class="group flex items-center gap-2 rounded-xl text-xl font-black tracking-tight text-slate-900 transition hover:opacity-90 dark:text-white">
                     <div
-                        class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 text-white shadow-md shadow-indigo-500/20 transition group-hover:scale-105">
+                        class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-600 text-white shadow-md shadow-teal-500/20 transition group-hover:scale-105">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <span>Vouch<span class="text-indigo-600 dark:text-indigo-400">AI</span></span>
+                    <span>Vouch<span class="text-teal-600 dark:text-teal-300">AI</span></span>
                 </a>
             </div>
 
-            <div class="hidden items-center gap-2 rounded-full border border-gray-200 bg-gray-50 p-1 md:flex">
-                <a href="#"
-                    class="rounded-full px-3 py-1.5 text-sm font-medium text-gray-600 transition hover:bg-white hover:text-gray-900">Dashboard</a>
-                <a href="#"
-                    class="rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-700 shadow-sm">Spaces</a>
-                <a href="#"
-                    class="rounded-full px-3 py-1.5 text-sm font-medium text-gray-600 transition hover:bg-white hover:text-gray-900">Settings</a>
+            <div
+                class="hidden items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 md:flex dark:border-slate-700 dark:bg-slate-800">
+                <a href="{{ route('dashboard') }}"
+                    @class([
+                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('dashboard'),
+                        'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('dashboard'),
+                        'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('dashboard'),
+                    ])
+                    @if (request()->routeIs('dashboard')) aria-current="page" @endif>Dashboard</a>
+                <a href="{{ route('spaces') }}"
+                    @class([
+                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('spaces'),
+                        'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('spaces'),
+                        'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('spaces'),
+                    ])
+                    @if (request()->routeIs('spaces')) aria-current="page" @endif>Spaces</a>
+                <a href="{{ route('profile.edit') }}"
+                    @class([
+                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('profile*'),
+                        'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('profile*'),
+                        'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('profile*'),
+                    ])
+                    @if (request()->routeIs('profile*')) aria-current="page" @endif>Settings</a>
             </div>
 
             <div class="hidden items-center gap-3 sm:flex">
@@ -36,11 +52,6 @@
                     </svg>
                 </button>
 
-                <span
-                    class="inline-flex items-center gap-1.5 rounded-full border border-indigo-200/60 bg-indigo-50/50 px-3 py-1 text-[11px] font-bold tracking-wider uppercase text-indigo-700 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-300">
-                    <span class="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                    Pro Workspace
-                </span>
 
                 <div class="relative">
                     <x-dropdown align="right" width="48">
@@ -48,7 +59,7 @@
                             <button
                                 class="flex items-center gap-2.5 rounded-full border border-slate-200/80 bg-white p-1 pr-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-700/50">
                                 <span
-                                    class="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-600 to-violet-600 text-xs font-bold text-white shadow-xs">
+                                    class="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-teal-500 to-cyan-600 text-xs font-bold text-white shadow-xs">
                                     {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                                 </span>
                                 <span class="max-w-[120px] truncate">{{ Auth::user()->name }}</span>
@@ -68,7 +79,7 @@
                                 </p>
                             </div>
 
-                            <x-dropdown-link :href="route('profile.edit')" class="flex items-center gap-2">
+                            <x-dropdown-link :href="route('profile')" class="flex items-center gap-2">
                                 <svg class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -125,7 +136,7 @@
         class="border-b border-slate-200 bg-white/95 px-4 pt-2 pb-4 shadow-lg sm:hidden dark:border-slate-800 dark:bg-slate-900/95">
         <div class="mb-3 flex items-center gap-3 border-b border-slate-100 px-2 pb-3 dark:border-slate-800">
             <span
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-600 text-sm font-bold text-white">
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 text-sm font-bold text-white">
                 {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
             </span>
             <div class="overflow-hidden">
@@ -138,7 +149,10 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
+            <x-responsive-nav-link :href="route('spaces')" :active="request()->routeIs('spaces')">
+                {{ __('Spaces') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
                 {{ __('Profile') }}
             </x-responsive-nav-link>
 

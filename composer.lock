@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "146fc29f7363af39175cc01e8d55d368",
+    "content-hash": "113ee540f665c050620d3a84d7a216b4",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,67 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "davmixcool/php-sentiment-analyzer",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davmixcool/php-sentiment-analyzer.git",
+                "reference": "4be9da6c55495617c687ec575873ebf9d05d41e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davmixcool/php-sentiment-analyzer/zipball/4be9da6c55495617c687ec575873ebf9d05d41e0",
+                "reference": "4be9da6c55495617c687ec575873ebf9d05d41e0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sentiment\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Oti",
+                    "email": "davmixcool@gmail.com",
+                    "role": "Software Developer"
+                }
+            ],
+            "description": "PHP Sentiment Analyzer is a lexicon and rule-based sentiment analysis tool for PHP using VADER (Valence Aware Dictionary and sEntiment Reasoner), matching the reference Python implementation exactly.",
+            "homepage": "https://github.com/davmixcool/php-sentiment-analyzer",
+            "keywords": [
+                "Deep learning",
+                "Sentiment Analyzer",
+                "ai",
+                "machine learning",
+                "nlp",
+                "php",
+                "social"
+            ],
+            "support": {
+                "issues": "https://github.com/davmixcool/php-sentiment-analyzer/issues",
+                "source": "https://github.com/davmixcool/php-sentiment-analyzer/tree/3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/iamdavidoti",
+                    "type": "custom"
+                }
+            ],
+            "time": "2026-08-20T17:41:19+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
