@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReviewRequest;
+use App\Jobs\GeneratePostsJob;
 use App\Models\Review;
 use App\Models\Space;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 use Sentiment\Analyzer;
 
@@ -37,25 +39,36 @@ class ReviewController extends Controller
     {
         $space = Space::where('space_id', $id)->firstOrFail();
         $validated = $request->validated();
-        $sentiment = $this->analyzeSentiment($request->review_content);
-        $created = Review::create([
+
+        $review = Review::create([
             ...$validated,
             'name' => $request->name,
             'email' => $request->email,
             'designation' => $request->designation,
             'content' => $request->review_content,
-            'ai_sentiment' => $sentiment,
+            'ai_sentiment' => null,
             'space_id' => $space->space_id,
         ]);
+        GeneratePostsJob::dispatch($review->id);
 
         return redirect()->back();
+
     }
 
-    public function toggleStatus(Request $request, int $id, int $review): RedirectResponse
+    public function updateStatus(Request $request, int $id, int $review): RedirectResponse
     {
         $space = Space::where('user_id', $request->user()->id)->findOrFail($id);
         $reviewModel = $space->reviews()->findOrFail($review);
-        $reviewModel->update(['status' => !$reviewModel->status]);
+
+        $allowedStatuses = in_array($reviewModel->status, ['approved', 'rejected'], true)
+            ? ['approved', 'rejected']
+            : ['pending', 'approved', 'rejected'];
+
+        $validated = $request->validate([
+            'status' => ['required', Rule::in($allowedStatuses)],
+        ]);
+
+        $reviewModel->update(['status' => $validated['status']]);
 
         return redirect()->back();
     }

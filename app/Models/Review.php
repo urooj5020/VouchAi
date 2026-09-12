@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Review extends Model
 {
@@ -20,5 +21,10 @@ class Review extends Model
     public function space(): BelongsTo
     {
         return $this->belongsTo(Space::class, 'space_id', 'space_id');
+    }
+
+    public function insight(): HasOne
+    {
+        return $this->hasOne(ReviewInsight::class);
     }
 }

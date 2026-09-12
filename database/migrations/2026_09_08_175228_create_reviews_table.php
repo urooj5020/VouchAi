@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('designation');
             $table->text('content');
-            $table->string('ai_sentiment');
-            $table->boolean('status')->default(1);
-            $table->integer('space_id');
+            $table->string('ai_sentiment')->nullable();
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->string('space_id');
             $table->timestamps();
         });
     }

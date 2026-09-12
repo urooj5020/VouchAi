@@ -31,7 +31,7 @@
                         'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('spaces'),
                         'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('spaces'),
                     ])
-                    @if (request()->routeIs('spaces')) aria-current="page" @endif>Spaces</a>
+                    @if (request()->routeIs('spaces' , 'space.*')) aria-current="page" @endif>Spaces</a>
                 <a href="{{ route('profile.edit') }}"
                     @class([
                         'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('profile*'),

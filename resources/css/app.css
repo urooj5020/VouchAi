@@ -15,6 +15,10 @@
         --brand-800: #115e59;
         --brand-900: #134e4a;
     }
+
+    [x-cloak] {
+        display: none !important;
+    }
 }
 
 @layer utilities {

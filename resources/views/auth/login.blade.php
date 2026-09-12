@@ -7,6 +7,8 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    <x-google-auth-button class="mb-6" />
+
     <form method="POST" action="{{ route('login') }}" class="space-y-5">
         @csrf
 

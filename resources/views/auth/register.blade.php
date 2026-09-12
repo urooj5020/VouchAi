@@ -6,6 +6,8 @@
             minutes.</p>
     </div>
 
+    <x-google-auth-button class="mb-6" />
+
     <form method="POST" action="{{ route('register') }}" class="space-y-5">
         @csrf
 
