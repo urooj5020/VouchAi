@@ -32,7 +32,7 @@ class SpaceController extends Controller
             auth()->user()->email_verified_at,
         ])->filter()->count() / 3 * 100);
         $dailyReviewCounts = collect(CarbonPeriod::create(now()->subDays(6), now()))
-            ->mapWithKeys(fn($date) => [
+            ->mapWithKeys(fn ($date) => [
                 $date->format('M d') => $reviewData->where('created_at', '>=', $date->copy()->startOfDay())
                     ->where('created_at', '<=', $date->copy()->endOfDay())
                     ->count(),
@@ -50,6 +50,7 @@ class SpaceController extends Controller
             'spaces'
         ));
     }
+
     public function store(SpaceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
@@ -61,7 +62,7 @@ class SpaceController extends Controller
             'space_id' => $token,
             'user_id' => $request->user()->id,
             'logo_path' => $logoPath,
-            'public_link' => route('review.post', ['id' => $token]),
+            'public_link' => route('review.post', ['slug' => $validated['slug'], 'id' => $token]),
         ]);
 
         return redirect()->back();

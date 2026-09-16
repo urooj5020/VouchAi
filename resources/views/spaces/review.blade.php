@@ -33,10 +33,14 @@
                     {{ $space->name }}.</p>
             </div>
 
-            <a href="{{ route('review.post', ['id' => $space->space_id]) }}" target="_blank"
-                class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
-                Public Form Link
-            </a>
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="{{ route('review.post', ['slug' => $space->slug, 'id' => $space->space_id]) }}" target="_blank"
+                    class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                    Public Form Link
+                </a>
+                <x-share-button :name="$space->name"
+                    :url="route('review.post', ['slug' => $space->slug, 'id' => $space->space_id])" />
+            </div>
         </div>
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

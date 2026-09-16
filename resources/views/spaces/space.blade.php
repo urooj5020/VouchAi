@@ -146,25 +146,28 @@
                         </div>
 
                         <div class="mt-5 grid grid-cols-2 gap-2">
-                            <a href="{{ route('space.review', $data->id) }}"
-                                class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
-                                View Reviews
-                            </a>
-                            <a href="{{ route('space.settings', $data->id) }}"
-                                class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
-                                Settings
-                            </a>
-                            <a href="{{ route('review.post', $data->space_id) }}"
-                                class="col-span-2 inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
-                                Public Link
-                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 5h5v5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M10 14 19 5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-                        </div>
+                                <a href="{{ route('space.review', $data->id) }}"
+                                    class="text-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
+                                    View Reviews
+                                </a>
+                                <a href="{{ route('space.settings', $data->id) }}"
+                                    class="text-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
+                                    Settings
+                                </a>
+                                <a href="{{ route('review.post', ['slug' => $data->slug, 'id' => $data->space_id]) }}"
+                                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 dark:!border-slate-700 dark:bg-slate-800 dark:!text-white dark:hover:!border-teal-500/50 dark:hover:bg-slate-900 dark:hover:text-teal-300">
+                                    Public Link
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M14 5h5v5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M10 14 19 5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <x-share-button :name="$data->name"
+                                    :url="route('review.post', ['slug' => $data->slug, 'id' => $data->space_id])" />
+                            </div>
                     </article>
 
                 @endforeach

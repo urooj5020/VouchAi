@@ -28,7 +28,7 @@ class ReviewController extends Controller
         }
     }
 
-    public function create(string $id): View
+    public function create(string $slug, $id): View
     {
         $space = Space::where('space_id', $id)->firstOrFail();
 

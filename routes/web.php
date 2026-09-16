@@ -4,20 +4,15 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SpaceController;
-use App\Models\Review;
-use App\Models\Space;
-use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', [SpaceController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
-
-Route::get('/dashboard', [SpaceController::class , 'show'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('post-a-review/{id}', [ReviewController::class, 'create'])->name('review.post');
+Route::get('post-a-review/{slug}/{id}', [ReviewController::class, 'create'])->name('review.post');
 Route::post('submit-review/{space}', [ReviewController::class, 'store'])->name('review.store');
 Route::get('/auth/google/redirect', [SocialiteController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);

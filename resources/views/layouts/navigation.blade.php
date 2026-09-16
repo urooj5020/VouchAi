@@ -17,24 +17,24 @@
             </div>
 
             <div
-                class="hidden items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 md:flex dark:border-slate-700 dark:bg-slate-800">
+                class="hidden items-center gap-6 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 md:flex dark:border-slate-700 dark:bg-slate-800">
                 <a href="{{ route('dashboard') }}"
                     @class([
-                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('dashboard'),
+                        'rounded-full px-5 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('dashboard'),
                         'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('dashboard'),
                         'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('dashboard'),
                     ])
                     @if (request()->routeIs('dashboard')) aria-current="page" @endif>Dashboard</a>
                 <a href="{{ route('spaces') }}"
                     @class([
-                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('spaces'),
-                        'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('spaces'),
-                        'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('spaces'),
+                        'rounded-full px-5 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('spaces', 'space.*'),
+                        'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('spaces', 'space.*'),
+                        'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('spaces', 'space.*'),
                     ])
                     @if (request()->routeIs('spaces' , 'space.*')) aria-current="page" @endif>Spaces</a>
                 <a href="{{ route('profile.edit') }}"
                     @class([
-                        'rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('profile*'),
+                        'rounded-full px-5 py-1.5 text-xs font-semibold shadow-sm' => request()->routeIs('profile*'),
                         'bg-teal-500 text-white dark:bg-teal-600 dark:!text-white' => request()->routeIs('profile*'),
                         'text-sm text-gray-600 transition hover:bg-white hover:text-gray-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white' => !request()->routeIs('profile*'),
                     ])
@@ -149,7 +149,7 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('spaces')" :active="request()->routeIs('spaces')">
+            <x-responsive-nav-link :href="route('spaces')" :active="request()->routeIs('spaces', 'space.*')">
                 {{ __('Spaces') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">

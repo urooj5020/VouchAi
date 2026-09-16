@@ -29,7 +29,7 @@
 
             <!-- Header Action -->
             <div class="flex items-center space-x-3">
-                <a href="{{ route('review.post', ['id' => $spaceInfo->space_id]) }}" target="_blank"
+                <a href="{{ route('review.post', ['slug' => $spaceInfo->slug, 'id' => $spaceInfo->space_id]) }}" target="_blank"
                     class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg font-medium text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition shadow-sm">
                     <svg class="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,6 +37,8 @@
                     </svg>
                     Public Form Link
                 </a>
+                <x-share-button :name="$spaceInfo->name"
+                    :url="route('review.post', ['slug' => $spaceInfo->slug, 'id' => $spaceInfo->space_id])" />
             </div>
         </div>
         <!-- Form Section 1: General Branding -->
